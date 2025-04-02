@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Batman Ninja vs. Yakuza League</title>
     <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
         .video-container {
             position: relative;
             width: 100%;
@@ -13,6 +17,8 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
+            background: #000;
+            border-radius: 8px;
         }
         .video-container iframe {
             position: absolute;
@@ -24,21 +30,44 @@
         }
         body {
             margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
+            padding: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
             background-color: #f0f0f0;
+            -webkit-font-smoothing: antialiased;
         }
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         h1 {
             text-align: center;
             color: #333;
+            font-size: calc(1.5rem + 1vw);
+            margin: 0.5em 0;
+        }
+        #error-message {
+            font-size: 1rem;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f8f8;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+            .container {
+                padding: 10px;
+                border-radius: 0;
+            }
+            h1 {
+                font-size: calc(1.2rem + 1vw);
+            }
         }
     </style>
 </head>
