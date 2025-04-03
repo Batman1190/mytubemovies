@@ -78,10 +78,13 @@
             <iframe 
                 src="https://xprime.tv/watch/777443"
                 title="Video Player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-                referrerpolicy="origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; payment; geolocation"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-presentation allow-orientation-lock"
+                referrerpolicy="strict-origin"
                 allowfullscreen
+                playsinline
+                webkit-playsinline
+                x-webkit-airplay="allow"
                 onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'text-align: center; padding: 20px;\'>Sorry, this media is currently unavailable. Please try again later.</div>';"
                 onload="this.style.opacity=1">
             </iframe>
@@ -110,6 +113,15 @@
             document.addEventListener('click', function(e) {
                 window.focus();
             });
+
+            // Prevent new windows/tabs from opening
+            window.addEventListener('beforeunload', function(e) {
+                e.preventDefault();
+                return e.returnValue = '';
+            });
+
+            // Block window.open attempts
+            window.open = function() { return null; };
         });
     </script>
 </body>
